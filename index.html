@@ -615,7 +615,7 @@
             </div>
             <div class="form-group">
                 <label>Carregar Índices ENCOGE</label>
-                <button class="btn btn-outline" onclick="carregarIndicesWeb('ENCODGE', this)" style="margin-top: 5px;">⬇️ Justiça Estadual (ENCOGE)</button>
+                <button class="btn btn-outline" onclick="carregarIndicesWeb('ENCOGE', this)" style="margin-top: 5px;">⬇️ Justiça Estadual (ENCOGE)</button>
             </div>
         </div>
 
@@ -1065,7 +1065,7 @@
         const configGid = {
             'EC113': '1468370044',
             'EC136': '0',
-            'ENCODGE': '1509896321' // ATENÇÃO: Substitua pelo GID real da aba encoge-gm
+            'encoge': '1509896321' // ATENÇÃO: Substitua pelo GID real da aba encoge-gm
         };
 
         const alvoGid = configGid[nomeAba];
@@ -1120,8 +1120,8 @@
                     continue;
                 }
                 
-                // NOVO: Processamento específico para ENCODGE
-                if (nomeAba === 'ENCODGE') {
+                // NOVO: Processamento específico para encoge
+                if (nomeAba === 'ENCOGE') {
                     indicesEncogeMap = {};
                     processarTxtIndicesEncoge(txt);
                     const contagemIndices = Object.keys(indicesEncogeMap).length;
@@ -1170,7 +1170,7 @@
         btn.innerHTML = txtOrig; 
         btn.disabled = false;
         
-        if (sucesso && nomeAba !== 'ENCODGE') {
+        if (sucesso && nomeAba !== 'ENCOGE') {
             calcularSeNecessario();
         }
     }
@@ -1188,7 +1188,7 @@
         });
     }
 
-    // NOVO: Processador de índices ENCODGE (independente)
+    // NOVO: Processador de índices ENCOGE (independente)
     function processarTxtIndicesEncoge(raw) {
         indicesEncogeMap = {};
         raw.split('\n').forEach(l => {
